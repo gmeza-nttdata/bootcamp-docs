@@ -1,0 +1,968 @@
+{
+	"info": {
+		"_postman_id": "0b98105c-7fce-4885-9f47-c3e0f6d8f2f1",
+		"name": "Project-gmeza",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AccountTransfer",
+			"item": [
+				{
+					"name": "doTransfer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"source\":\"61a7b0be4f206c1e198b7d07\",\r\n    \"target\":\"61a718861653647a161109c7\",\r\n    \"amount\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/account-transfers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account-transfers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStatements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/account-transfers/61a7b0be4f206c1e198b7d07",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account-transfers",
+								"61a7b0be4f206c1e198b7d07"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AccountTransactions",
+			"item": [
+				{
+					"name": "Deposit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\":\"61aae907245f5d1b46d4bf78\",\r\n    \"amount\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/account-transactions/deposit",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account-transactions",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Withdraw",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\":\"61aaed2cf947f453da4de9bd\",\r\n    \"amount\":798.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/account-transactions/withdraw",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account-transactions",
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetStatements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/account-transactions/statements/61aaed2cf947f453da4de9bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account-transactions",
+								"statements",
+								"61aaed2cf947f453da4de9bd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CreditTransactions",
+			"item": [
+				{
+					"name": "Pay",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\":\"61a78de2936cda0ca1de050d\",\r\n    \"amount\":5000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/credit-transactions/pay",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credit-transactions",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consume",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\":\"61a78de2936cda0ca1de050d\",\r\n    \"amount\":1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/credit-transactions/consume",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credit-transactions",
+								"consume"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetStatements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/credit-transactions/statements/61a78de2936cda0ca1de050d",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credit-transactions",
+								"statements",
+								"61a78de2936cda0ca1de050d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "CreateAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 72352628,\r\n    \"type\": \"SAVINGS_VIP\",\r\n    \"currencyName\": \"PEN\",\r\n    \"holders\": [],\r\n    \"signers\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/accounts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCredit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 72352628,\r\n    \"hasCard\": true,\r\n    \"currencyName\": \"USD\",\r\n    \"balance\": 0,\r\n    \"creditLine\": 50000,\r\n    \"rate\":54.9,\r\n    \"cutoffDate\": 10,\r\n    \"paymentDate\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/credits",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"credits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCreditBalance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/credits/balance/61a78de2936cda0ca1de050d",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"credits",
+								"balance",
+								"61a78de2936cda0ca1de050d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAccountBalance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/accounts/balance/61a717437f5b891c245a2b9d",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"accounts",
+								"balance",
+								"61a717437f5b891c245a2b9d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "QueryAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/accounts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/accounts/61aaed2cf947f453da4de9bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts",
+								"61aaed2cf947f453da4de9bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": null,\r\n    \"userId\": 72352628,\r\n    \"type\": \"CURRENT\",\r\n    \"currencyName\": null,\r\n    \"balance\": null,\r\n    \"holders\": [],\r\n    \"signers\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/accounts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": \"123123123123\",\r\n    \"userId\": null,\r\n    \"type\": \"CURRENT\",\r\n    \"currencyName\": \"$\",\r\n    \"amount\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/accounts/123123123123",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"accounts",
+								"123123123123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/accounts/61aad51646f541243b30e67b",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts",
+								"61aad51646f541243b30e67b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Credits",
+			"item": [
+				{
+					"name": "QueryAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/credits",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8083/credits/619bfabcaef7ba7583707ea2",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"credits",
+								"619bfabcaef7ba7583707ea2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": null,\r\n    \"userId\": null,\r\n    \"userType\": \"PERSONAL\",\r\n    \"creditType\": \"CARD\",\r\n    \"currencyName\": \"USD\",\r\n    \"balance\": 0,\r\n    \"creditLine\": 100,\r\n    \"expiration\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8083/credits",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"credits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": \"619bdf7137aa625b0520f3ec\",\r\n    \"userId\": null,\r\n    \"userType\": \"PERSONAL\",\r\n    \"creditType\": \"CARD\",\r\n    \"currencyName\": \"PEN\",\r\n    \"balance\": 0,\r\n    \"creditLine\": 100,\r\n    \"expiration\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8083/credits/619bdf7137aa625b0520f3ec",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"credits",
+								"619bdf7137aa625b0520f3ec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/credits/61aaeac82c41d34e1d06e507",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"credits",
+								"61aaeac82c41d34e1d06e507"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DebitCard",
+			"item": [
+				{
+					"name": "CreateDebitCard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/debit-cards",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"debit-cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AssociateAccount",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/debit-cards",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"debit-cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DisassociateAccount",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/debit-cards",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"debit-cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteDebitCard",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/debit-cards",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"debit-cards"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DebitCardStatement",
+			"item": []
+		},
+		{
+			"name": "Statements",
+			"item": [
+				{
+					"name": "QueryAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8084/statements",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"statements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8084/statements",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"statements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productType\": \"ACCOUNT\",\r\n    \"number\": \"000003\",\r\n    \"operation\": \"DEPOSIT\",\r\n    \"amount\": 0,\r\n    \"dateTime\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8084/statements",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"statements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"619abf8c9b5e4c4f12ecbb58\",\r\n    \"productType\": \"ACCOUNT\",\r\n    \"number\": \"123123123\",\r\n    \"operation\": \"DEPOSIT\",\r\n    \"amount\": 0,\r\n    \"dateTime\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8084/statements/619abf8c9b5e4c4f12ecbb58",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"statements",
+								"619abf8c9b5e4c4f12ecbb58"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8084/statements/619ac054b0288d5df7c65989",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"statements",
+								"619ac054b0288d5df7c65989"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "QueryAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/72352628",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"72352628"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 72352628,\n    \"type\": \"PERSONAL\",\n    \"fullName\": \"Gustavo Meza\",\n    \"address\": \"Lima 123\",\n    \"birthDate\": \"2010-01-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 72352628,\n    \"type\": \"PERSONAL\",\n    \"fullName\": \"John s\",\n    \"address\": \"Evergreen 100\",\n    \"birthDate\": \"2000-01-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/users/72352628",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"72352628"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/72352628",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"72352628"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "_Tests",
+			"item": [
+				{
+					"name": "ActuatorRefresh Client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "TestProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/products/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"products",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "getAverageBalance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/reports/average-balance/72352628",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reports",
+								"average-balance",
+								"72352628"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FeeReport",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"from\":\"2021-12-01\",\r\n    \"to\":\"2021-12-05\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/reports/fee-report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reports",
+								"fee-report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
