@@ -68,7 +68,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"number\":\"61aae907245f5d1b46d4bf78\",\r\n    \"amount\":10\r\n}",
+							"raw": "{\r\n    \"number\":\"61aaed2cf947f453da4de9bd\",\r\n    \"amount\":200\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -123,7 +123,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/account-transactions/statements/61aaed2cf947f453da4de9bd",
+							"raw": "localhost:8080/account-transactions/statements/61aae907245f5d1b46d4bf78",
 							"host": [
 								"localhost"
 							],
@@ -131,7 +131,7 @@
 							"path": [
 								"account-transactions",
 								"statements",
-								"61aaed2cf947f453da4de9bd"
+								"61aae907245f5d1b46d4bf78"
 							]
 						}
 					},
@@ -320,6 +320,30 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "GetAvailableProductsForUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products?userId=72352628",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "72352628"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -350,14 +374,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/accounts/61aaed2cf947f453da4de9bd",
+							"raw": "localhost:8080/accounts/61aae907245f5d1b46d4bf78",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"accounts",
-								"61aaed2cf947f453da4de9bd"
+								"61aae907245f5d1b46d4bf78"
 							]
 						}
 					},
@@ -559,13 +583,50 @@
 			"name": "DebitCard",
 			"item": [
 				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/debit-cards",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"debit-cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDebitCardWithBalance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/debit-cards/61aef02dbde7a3739fae5570",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"debit-cards",
+								"61aef02dbde7a3739fae5570"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "CreateDebitCard",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\r\n}",
+							"raw": "{\r\n    \"id\": null,\r\n    \"number\": null,\r\n    \"mainAccount\": \"61aae907245f5d1b46d4bf78\",\r\n    \"accounts\": null\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -588,16 +649,26 @@
 				{
 					"name": "AssociateAccount",
 					"request": {
-						"method": "PUT",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\":\"61aaed2cf947f453da4de9bd\",\r\n    \"cardId\":\"61aef02dbde7a3739fae5570\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:8080/debit-cards",
+							"raw": "localhost:8080/debit-cards/associate",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"debit-cards"
+								"debit-cards",
+								"associate"
 							]
 						}
 					},
@@ -606,16 +677,26 @@
 				{
 					"name": "DisassociateAccount",
 					"request": {
-						"method": "PUT",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\":\"61aaed2cf947f453da4de9bd\",\r\n    \"cardId\":\"61aef02dbde7a3739fae5570\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:8080/debit-cards",
+							"raw": "localhost:8080/debit-cards/disassociate",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"debit-cards"
+								"debit-cards",
+								"disassociate"
 							]
 						}
 					},
@@ -627,13 +708,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/debit-cards",
+							"raw": "localhost:8080/debit-cards/61aeecdc95fb5f3eac1fe376",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"debit-cards"
+								"debit-cards",
+								"61aeecdc95fb5f3eac1fe376"
 							]
 						}
 					},
@@ -643,7 +725,120 @@
 		},
 		{
 			"name": "DebitCardStatement",
-			"item": []
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/debit-card-statements",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"debit-card-statements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllByAccountNumber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/debit-card-statements/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"debit-card-statements",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PayWithDebitCard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cardId\":\"61aef02dbde7a3739fae5570\",\r\n    \"amount\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/debit-card-statements/pay",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"debit-card-statements",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "WithdrawWithDebitCard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/debit-card-statements/withdraw",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"debit-card-statements",
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/debit-card-statements/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"debit-card-statements",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Statements",
@@ -957,6 +1152,117 @@
 							"path": [
 								"reports",
 								"fee-report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Yanki",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/yanki",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"yanki"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/yanki/72352629",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"yanki",
+								"72352629"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":72352629,\r\n    \"idType\":\"DNI\",\r\n    \"phone\": 987654321,\r\n    \"email\":\"gustavomeza27\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/yanki",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"yanki"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteYanki",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/yanki/1072352628",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"yanki",
+								"1072352628"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "YankiTransactions",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/yanki-transactions",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"yanki-transactions"
 							]
 						}
 					},
