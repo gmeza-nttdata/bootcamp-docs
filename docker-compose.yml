@@ -1,0 +1,107 @@
+version: "3.9"
+services:
+    mongo:
+      container_name: mongo
+      image: mongo
+      restart: always
+      ports:
+        - 27017:27017
+      environment:
+        MONGO_INITDB_DATABASE: bootcamp
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: root
+      volumes:
+        - "./mongodbdata:/data/db"
+    
+    config:
+      container_name: config
+      build: bootcamp-config-service
+      ports:
+        - "8888:8888"
+      restart: always
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8888/eureka-service/default/docker" ]
+        interval: 30s
+        timeout: 5s
+        retries: 5
+    
+    eureka:
+      container_name: eureka
+      build: bootcamp-eureka-service
+      ports:
+        - "8761:8761"
+      restart: always
+      depends_on:
+        config:
+          condition: service_healthy
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8761"]
+        interval: 30s
+        timeout: 5s
+        retries: 5
+    
+    gateway:
+      container_name: gateway
+      build: bootcamp-gateway-service
+      ports:
+        - "8080:8080"
+      restart: always
+      depends_on:
+        eureka:
+          condition: service_healthy
+
+    user:
+      build: bootcamp-user-service
+      restart: on-failure
+      depends_on:
+        eureka:
+          condition: service_healthy
+
+    account:
+      build: bootcamp-account-service
+      restart: on-failure
+      depends_on:
+        eureka:
+          condition: service_healthy
+
+    credit:
+      build: bootcamp-credit-service
+      restart: on-failure
+      depends_on:
+        eureka:
+          condition: service_healthy
+
+    product:
+      build: bootcamp-product-service
+      restart: on-failure
+      depends_on:
+        eureka:
+          condition: service_healthy
+
+    account-transaction:
+      build: bootcamp-account-transaction-service
+      restart: on-failure
+      depends_on:
+        eureka:
+          condition: service_healthy
+
+    credit-transaction:
+      build: bootcamp-credit-transaction-service
+      restart: on-failure
+      depends_on:
+        eureka:
+          condition: service_healthy
+
+    account-transfer:
+      build: bootcamp-account-transfer-service
+      restart: on-failure
+      depends_on:
+        eureka:
+          condition: service_healthy
+
+    report:
+      build: bootcamp-report-service
+      restart: on-failure
+      depends_on:
+        eureka:
+          condition: service_healthy
